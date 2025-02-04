@@ -28,7 +28,7 @@ jobs:
      uses: docker/login-action@v1
      with:
       registry: ghrc.io
-      username: ${{github.repsitory_owner}}
+      username: ${{github.repository_owner}}
       password: ${{secrets.GHRC_TOKEN}} 
    - 
      name: Build and push
@@ -37,7 +37,7 @@ jobs:
       context: .
       file: ./Dockerfile
       push: true
-      tags: | #
-       mari-pin/animal-farm_24_25:latest
-       ghcr.io/mari-pin/animal-farm_24_25:latest
-          
+      tags: |
+        mari-pin/animal-farm_24_25:latest
+        ghcr.io/mari-pin/animal-farm_24_25:latest
+
