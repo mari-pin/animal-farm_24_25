@@ -1,4 +1,4 @@
-name: Granja animales Node.js CI #
+name: Granja Animales Node.js CI #
 on: #
  push:
   branches:
@@ -16,7 +16,7 @@ jobs:
      uses: actions/setup-node@v1 #
      with:
       node-version: '18.x'
-   - name: Run yarn #
-     run : yarn 
-   - name: Run test
+   - name: Run Yarn #
+     run: yarn 
+   - name: Run tests
      run: yarn test           
