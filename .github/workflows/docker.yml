@@ -26,12 +26,12 @@ jobs:
      with:
       registry: ghrc.io
       username: ${{github.repsitory_owner}}
-      password: ${{$ecrets.GHRC_TOKEN}} 
+      password: ${{$secrets.GHRC_TOKEN}} 
    - 
      name: Build and push
      uses: docker/build-push-action@v2
      with:
-      context:
+      context: .
       file: ./Dockerfile
       push: true
       tags: | #
