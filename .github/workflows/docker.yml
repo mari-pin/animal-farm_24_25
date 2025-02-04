@@ -1,0 +1,40 @@
+name: Publicar imagen Docker
+on: 
+ push:
+  branches:
+   - main
+
+jobs:
+ buil-and-push:
+  runs-on: ubuntu-latest
+  steps:
+   - 
+     name: checkout
+     uses: actions/checkout@v2
+   -
+     name: Set up QUEMU
+     uses: docker/setup-quemu-action@v1
+   -
+     name: login to DockerHub
+     uses: docker/login-action@v1
+     with:
+      username: ${{secrets.DOCKERHUB_USERNAME}}   
+      password: ${{secrets.DOCKERHUB_TOKEN}}
+   - 
+     name: Login to GitHub Container Registry
+     uses: docker/login-action@v1
+     with:
+      registry: ghrc.io
+      username: ${{github.repsitory_owner}}
+      password: ${{$ecrets.GHRC_TOKEN}} 
+   - 
+     name: Build and push
+     uses: docker/build-push-action@v2
+     with:
+      context:
+      file: ./Dockerfile
+      push: true
+      tags: | #
+       mari-pin/animal-farm_24_25:latest
+       ghcr.io/mari-pin/animal-farm_24_25
+          
