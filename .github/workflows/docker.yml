@@ -38,7 +38,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            mari-pin/animal-farm_24_25:latest
-            ghcr.io/mari-pin/animal-farm_24_25:latest
+            mari-pin/animal-farm_24_25
+            ghcr.io/mari-pin/animal-farm_24_25
 
 
